@@ -1,0 +1,55 @@
+GET
+http://localhost:8086/favicon.ico
+[HTTP/1.1 404  0ms]
+
+
+GET
+	http://localhost:8086/favicon.ico
+État
+404
+VersionHTTP/1.1
+Transfert5,25 Ko (taille 5,25 Ko)
+Politique de référentstrict-origin-when-cross-origin
+Résolution DNSSystème
+
+
+Connection
+	keep-alive
+Content-Type
+	application/json
+Date
+	Sun, 28 Dec 2025 01:40:39 GMT
+Keep-Alive
+	timeout=60
+Transfer-Encoding
+	chunked
+Vary
+	Origin
+Vary
+	Access-Control-Request-Method
+Vary
+	Access-Control-Request-Headers
+
+Accept
+	image/avif,image/webp,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5
+Accept-Encoding
+	gzip, deflate, br, zstd
+Accept-Language
+	fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Connection
+	keep-alive
+Host
+	localhost:8086
+Referer
+	http://localhost:8086/rankings.html
+Sec-Fetch-Dest
+	image
+Sec-Fetch-Mode
+	no-cors
+Sec-Fetch-Site
+	same-origin
+User-Agent
+	Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0) Gecko/20100101 Firefox/146.0
+
+​
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer Session Groupe - STORIA</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <div class="nav-brand">STORIA</div>
+        <div class="nav-menu">
+            <a href="/dashboard.html" class="nav-link">Tableau de bord</a>
+            <a href="/quiz-groupe.html" class="nav-link">Retour</a>
+            <a href="#" id="logoutBtn" class="nav-link">Déconnexion</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header fade-in">
+            <h1>Créer une Session Groupe</h1>
+            <p>Configurez votre session de quiz en groupe</p>
+        </div>
+
+        <form id="createGroupForm" class="create-form glass-card">
+            <div class="form-group">
+                <label for="sessionName">Nom de la session</label>
+                <input type="text" id="sessionName" name="sessionName" required
+                       placeholder="Ex: Quiz du vendredi">
+            </div>
+
+            <div class="form-group">
+                <label for="themeId">Thème</label>
+                <select id="themeId" name="themeId" required>
+                    <option value="">Chargement...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre de groupes</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="numGroups" value="2" checked>
+                        <span>2 groupes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="numGroups" value="3">
+                        <span>3 groupes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="numGroups" value="4">
+                        <span>4 groupes</span>
+                    </label>
+                </div>
+            </div>
+
+            <div id="groupNamesContainer" class="group-names-container">
+                <!-- Group name inputs will be inserted here -->
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <div class="form-actions">
+                <a href="/quiz-groupe.html" class="btn btn-outline">Annuler</a>
+                <button type="submit" class="btn btn-primary">Créer la session</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/create-group.js"></script>
+</body>
+</html>

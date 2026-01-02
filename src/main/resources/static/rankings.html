@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classements - STORIA</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <div class="nav-brand">STORIA</div>
+        <div class="nav-menu">
+            <a href="/dashboard.html" class="nav-link">Tableau de bord</a>
+            <a href="/quiz-solo.html" class="nav-link">Solo</a>
+            <a href="/quiz-groupe.html" class="nav-link">Groupe</a>
+            <a href="/rankings.html" class="nav-link active">Classements</a>
+            <a href="/reclamations.html" class="nav-link">Réclamations</a>
+            <a href="/profile.html" class="nav-link">Profil</a>
+            <a href="#" id="adminLink" class="nav-link" style="display: none;">Admin</a>
+            <a href="#" id="logoutBtn" class="nav-link">Déconnexion</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header fade-in">
+            <h1>🏆 Classements</h1>
+            <p>Comparez vos scores avec les autres joueurs</p>
+        </div>
+
+        <div class="tabs glass-card">
+            <button class="tab-btn active" data-tab="global">Classement Global</button>
+            <button class="tab-btn" data-tab="theme">Par Thème</button>
+        </div>
+
+        <div class="tab-content" id="globalTab">
+            <div id="themeSelector" style="display: none;" class="theme-selector glass-card">
+                <label for="themeSelect">Sélectionnez un thème :</label>
+                <select id="themeSelect" class="form-select">
+                    <option value="">Chargement...</option>
+                </select>
+            </div>
+
+            <div class="rankings-table glass-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rang</th>
+                            <th>Joueur</th>
+                            <th>Score Total</th>
+                            <th>Quiz Complétés</th>
+                            <th>Moyenne</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rankingsBody">
+                        <tr>
+                            <td colspan="5" class="text-center">
+                                <div class="loading-spinner"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/rankings.js"></script>
+</body>
+</html>

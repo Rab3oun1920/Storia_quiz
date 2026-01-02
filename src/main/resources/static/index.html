@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STORIA - Plateforme de Quiz Interactive</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hero-container">
+        <nav class="top-nav">
+            <div class="nav-brand">STORIA</div>
+            <div class="nav-buttons">
+                <a href="/login.html" class="btn btn-outline">SE CONNECTER</a>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <h1 class="hero-title fade-in">STORIA</h1>
+            <p class="hero-subtitle fade-in">Plateforme de quiz interactive</p>
+            <p class="hero-description fade-in">Testez vos connaissances en solo ou défiez vos amis en groupe</p>
+
+            <div class="hero-buttons">
+                <a href="/quiz-solo.html" class="btn btn-primary btn-large pulse">
+                    <span class="btn-icon">🎯</span>
+                    JOUER SOLO
+                </a>
+                <a href="/quiz-groupe.html" class="btn btn-secondary btn-large pulse">
+                    <span class="btn-icon">👥</span>
+                    JOUER EN GROUPE
+                </a>
+            </div>
+
+            <div class="features">
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">📚</div>
+                    <h3>5 Thèmes</h3>
+                    <p>Histoire, Géographie, Science, Culture, Sport</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Quiz Rapides</h3>
+                    <p>10 questions en 10 secondes chacune</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Classements</h3>
+                    <p>Comparez vos scores avec les autres joueurs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script>
+        // Redirect to dashboard if already logged in
+        if (isAuthenticated()) {
+            window.location.href = '/dashboard.html';
+        }
+    </script>
+</body>
+</html>

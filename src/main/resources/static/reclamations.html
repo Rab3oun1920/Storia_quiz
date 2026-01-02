@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Réclamations - STORIA</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .reclamation-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .reclamation-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .reclamation-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .btn-new-reclamation {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 20px 0;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.3s;
+        }
+
+        .btn-new-reclamation:hover {
+            transform: translateY(-2px);
+        }
+
+        .reclamation-form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .btn-submit,
+        .btn-cancel {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-cancel {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .reclamations-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .reclamation-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .reclamation-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .reclamation-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .reclamation-subject {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .reclamation-status {
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-EN_ATTENTE {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-EN_COURS {
+            background: #cfe2ff;
+            color: #084298;
+        }
+
+        .status-RESOLU {
+            background: #d1e7dd;
+            color: #0a3622;
+        }
+
+        .status-FERME {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .reclamation-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .reclamation-response {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin-top: 15px;
+        }
+
+        .response-header {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .reclamation-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 15px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .alert-success {
+            background: #d1e7dd;
+            color: #0a3622;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #842029;
+        }
+    </style>
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <div class="nav-brand">STORIA</div>
+        <div class="nav-menu">
+            <a href="/dashboard.html" class="nav-link">Tableau de bord</a>
+            <a href="/quiz-solo.html" class="nav-link">Solo</a>
+            <a href="/quiz-groupe.html" class="nav-link">Groupe</a>
+            <a href="/rankings.html" class="nav-link">Classements</a>
+            <a href="/reclamations.html" class="nav-link active">Réclamations</a>
+            <a href="/profile.html" class="nav-link">Profil</a>
+            <a href="#" id="adminLink" class="nav-link" style="display: none;">Admin</a>
+            <a href="#" id="logoutBtn" class="nav-link">Déconnexion</a>
+        </div>
+    </nav>
+
+    <div class="reclamation-container">
+        <div class="reclamation-header fade-in">
+            <h1>Mes Réclamations</h1>
+            <p>Signalez un problème et suivez son traitement</p>
+            <button class="btn-new-reclamation" id="btnNewReclamation">
+                + Nouvelle Réclamation
+            </button>
+        </div>
+
+        <div id="alertContainer"></div>
+
+        <div class="reclamation-form" id="reclamationForm">
+            <h3>Nouvelle Réclamation</h3>
+            <form id="createReclamationForm">
+                <div class="form-group">
+                    <label for="subject">Sujet *</label>
+                    <input type="text" id="subject" name="subject" required maxlength="200"
+                           placeholder="Résumez votre problème en quelques mots">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description détaillée *</label>
+                    <textarea id="description" name="description" required
+                              placeholder="Décrivez votre problème en détail pour que nous puissions mieux vous aider..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" id="btnCancelForm">Annuler</button>
+                    <button type="submit" class="btn-submit">Envoyer</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="reclamations-list" id="reclamationsList">
+            <p class="text-center">Chargement...</p>
+        </div>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/reclamations.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats - STORIA</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="result-container fade-in">
+            <div class="result-header glass-card">
+                <div class="result-trophy">🏆</div>
+                <h1>Quiz Terminé !</h1>
+                <p id="themeName">Thème</p>
+            </div>
+
+            <div class="result-stats">
+                <div class="result-stat glass-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-value" id="finalScore">0</div>
+                    <div class="stat-label">Score / 200</div>
+                </div>
+
+                <div class="result-stat glass-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-value" id="percentage">0%</div>
+                    <div class="stat-label">Pourcentage</div>
+                </div>
+
+                <div class="result-stat glass-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-value" id="totalTime">0s</div>
+                    <div class="stat-label">Temps Total</div>
+                </div>
+            </div>
+
+            <div class="ranking-cards">
+                <div class="ranking-card glass-card">
+                    <h3>🌍 Rang Global</h3>
+                    <div class="rank-value" id="globalRank">-</div>
+                    <p class="rank-description">sur tous les joueurs</p>
+                </div>
+
+                <div class="ranking-card glass-card">
+                    <h3>📚 Rang Thématique</h3>
+                    <div class="rank-value" id="themeRank">-</div>
+                    <p class="rank-description">dans ce thème</p>
+                </div>
+            </div>
+
+            <div class="result-actions">
+                <a href="#" id="replayBtn" class="btn btn-primary">
+                    🔄 Rejouer ce thème
+                </a>
+                <a href="/quiz-solo.html" class="btn btn-secondary">
+                    📚 Choisir un autre thème
+                </a>
+                <a href="/rankings.html" class="btn btn-outline">
+                    🏆 Voir les classements
+                </a>
+                <a href="/dashboard.html" class="btn btn-outline">
+                    🏠 Tableau de bord
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/result-solo.js"></script>
+</body>
+</html>

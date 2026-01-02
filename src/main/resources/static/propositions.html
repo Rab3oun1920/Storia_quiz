@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Propositions - STORIA</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .proposition-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .proposition-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .proposition-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .type-selector {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .type-btn {
+            padding: 15px 40px;
+            border-radius: 15px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .type-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .type-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .proposition-form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .proposition-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+        }
+
+        .propositions-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .proposition-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .proposition-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .proposition-type {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .type-THEME {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .type-QUESTION {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .proposition-status {
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-EN_ATTENTE {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-APPROUVE {
+            background: #d1e7dd;
+            color: #0a3622;
+        }
+
+        .status-REJETE {
+            background: #f8d7da;
+            color: #842029;
+        }
+
+        .proposition-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .proposition-content {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .admin-feedback {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin-top: 15px;
+        }
+
+        .feedback-header {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .proposition-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 15px;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .alert-success {
+            background: #d1e7dd;
+            color: #0a3622;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #842029;
+        }
+
+        .question-answers {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .answer-item {
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .answer-correct {
+            background: #d1e7dd;
+            font-weight: 600;
+        }
+
+        .answer-wrong {
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <div class="nav-brand">STORIA</div>
+        <div class="nav-menu">
+            <a href="/dashboard.html" class="nav-link">Tableau de bord</a>
+            <a href="/quiz-solo.html" class="nav-link">Solo</a>
+            <a href="/quiz-groupe.html" class="nav-link">Groupe</a>
+            <a href="/rankings.html" class="nav-link">Classements</a>
+            <a href="/reclamations.html" class="nav-link">Réclamations</a>
+            <a href="/propositions.html" class="nav-link active">Propositions</a>
+            <a href="/profile.html" class="nav-link">Profil</a>
+            <a href="#" id="adminLink" class="nav-link" style="display: none;">Admin</a>
+            <a href="#" id="logoutBtn" class="nav-link">Déconnexion</a>
+        </div>
+    </nav>
+
+    <div class="proposition-container">
+        <div class="proposition-header fade-in">
+            <h1>Mes Propositions</h1>
+            <p>Suggérez de nouveaux thèmes ou questions pour enrichir STORIA</p>
+        </div>
+
+        <div id="alertContainer"></div>
+
+        <div class="type-selector">
+            <button class="type-btn active" data-type="theme">Proposer un Thème</button>
+            <button class="type-btn" data-type="question">Proposer une Question</button>
+        </div>
+
+        <!-- Formulaire Thème -->
+        <div class="proposition-form active" id="themeForm">
+            <h3>Proposer un nouveau thème</h3>
+            <form id="createThemeForm">
+                <div class="form-group">
+                    <label for="themeTitle">Titre du thème *</label>
+                    <input type="text" id="themeTitle" required maxlength="100"
+                           placeholder="Ex: Cinéma, Astronomie, Mythologie...">
+                </div>
+
+                <div class="form-group">
+                    <label for="themeDescription">Description *</label>
+                    <textarea id="themeDescription" required
+                              placeholder="Décrivez brièvement le thème que vous proposez..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="themeIcon">Icône (optionnel)</label>
+                    <input type="text" id="themeIcon" maxlength="50"
+                           placeholder="Ex: 🎬, 🌟, ⚡...">
+                </div>
+
+                <button type="submit" class="btn-submit">Soumettre la proposition</button>
+            </form>
+        </div>
+
+        <!-- Formulaire Question -->
+        <div class="proposition-form" id="questionForm">
+            <h3>Proposer une nouvelle question</h3>
+            <form id="createQuestionForm">
+                <div class="form-group">
+                    <label for="questionTheme">Thème *</label>
+                    <select id="questionTheme" required>
+                        <option value="">Sélectionnez un thème</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="questionText">Question *</label>
+                    <textarea id="questionText" required
+                              placeholder="Posez votre question..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="questionDifficulty">Difficulté *</label>
+                    <select id="questionDifficulty" required>
+                        <option value="">Sélectionnez</option>
+                        <option value="EASY">Facile (10 points)</option>
+                        <option value="MEDIUM">Moyenne (20 points)</option>
+                        <option value="HARD">Difficile (30 points)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="correctAnswer">Bonne réponse *</label>
+                    <input type="text" id="correctAnswer" required maxlength="500"
+                           placeholder="La réponse correcte">
+                </div>
+
+                <div class="form-group">
+                    <label>Mauvaises réponses *</label>
+                    <input type="text" id="wrongAnswer1" required maxlength="500"
+                           placeholder="Mauvaise réponse 1" style="margin-bottom: 10px;">
+                    <input type="text" id="wrongAnswer2" required maxlength="500"
+                           placeholder="Mauvaise réponse 2" style="margin-bottom: 10px;">
+                    <input type="text" id="wrongAnswer3" required maxlength="500"
+                           placeholder="Mauvaise réponse 3">
+                </div>
+
+                <button type="submit" class="btn-submit">Soumettre la proposition</button>
+            </form>
+        </div>
+
+        <h2 style="margin-top: 50px; margin-bottom: 20px;">Mes propositions</h2>
+        <div class="propositions-list" id="propositionsList">
+            <p class="text-center">Chargement...</p>
+        </div>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/propositions.js"></script>
+</body>
+</html>

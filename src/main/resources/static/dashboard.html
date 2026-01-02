@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord - STORIA</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <div class="nav-brand">STORIA</div>
+        <div class="nav-menu">
+            <a href="/dashboard.html" class="nav-link active">Tableau de bord</a>
+            <a href="/quiz-solo.html" class="nav-link">Solo</a>
+            <a href="/quiz-groupe.html" class="nav-link">Groupe</a>
+            <a href="/rankings.html" class="nav-link">Classements</a>
+            <a href="/reclamations.html" class="nav-link">Réclamations</a>
+            <a href="/profile.html" class="nav-link">Profil</a>
+            <a href="#" id="adminLink" class="nav-link" style="display: none;">Admin</a>
+            <a href="#" id="logoutBtn" class="nav-link">Déconnexion</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header fade-in">
+            <h1>Bienvenue, <span id="username"></span> !</h1>
+            <p>Prêt à tester vos connaissances ?</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card glass-card fade-in">
+                <div class="stat-icon"></div>
+                <div class="stat-value" id="totalQuizzes">0</div>
+                <div class="stat-label">Quiz Complétés</div>
+            </div>
+
+            <div class="stat-card glass-card fade-in">
+                <div class="stat-icon"></div>
+                <div class="stat-value" id="totalScore">0</div>
+                <div class="stat-label">Score Total</div>
+            </div>
+
+            <div class="stat-card glass-card fade-in">
+                <div class="stat-icon"></div>
+                <div class="stat-value" id="averageScore">0%</div>
+                <div class="stat-label">Moyenne</div>
+            </div>
+
+            <div class="stat-card glass-card fade-in">
+                <div class="stat-icon"></div>
+                <div class="stat-value" id="globalRank">-</div>
+                <div class="stat-label">Rang Global</div>
+            </div>
+        </div>
+
+        <div class="mode-cards">
+            <a href="/quiz-solo.html" class="mode-card glass-card fade-in">
+                <div class="mode-icon"></div>
+                <h2>Mode Solo</h2>
+                <p>Testez vos connaissances individuellement</p>
+                <ul class="mode-features">
+                    <li>10 questions par quiz</li>
+                    <li>5 thèmes disponibles</li>
+                    <li>10 secondes par question</li>
+                    <li>Classements par thème</li>
+                </ul>
+                <div class="btn btn-primary">Jouer Solo</div>
+            </a>
+
+            <a href="/quiz-groupe.html" class="mode-card glass-card fade-in">
+                <div class="mode-icon"></div>
+                <h2>Mode Groupe</h2>
+                <p>Défiez vos amis en équipes</p>
+                <ul class="mode-features">
+                    <li>2 à 4 groupes</li>
+                    <li>Tour par tour</li>
+                    <li>5 secondes par question</li>
+                    <li>Classement final</li>
+                </ul>
+                <div class="btn btn-secondary">Jouer en Groupe</div>
+            </a>
+        </div>
+
+        <div class="recent-activity glass-card fade-in">
+            <h2>Activité Récente</h2>
+            <div id="recentQuizzes" class="activity-list">
+                <p class="text-center">Chargement...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

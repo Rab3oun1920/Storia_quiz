@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz en cours - STORIA</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header glass-card">
+            <div class="quiz-info">
+                <div class="theme-name" id="themeName">Chargement...</div>
+                <div class="question-counter">
+                    Question <span id="currentQuestion">1</span>/<span id="totalQuestions">10</span>
+                </div>
+            </div>
+            <div class="timer-container">
+                <div class="timer" id="timer">10</div>
+                <div class="timer-bar">
+                    <div class="timer-progress" id="timerProgress"></div>
+                </div>
+            </div>
+            <div class="score-display">
+                Score: <span id="currentScore">0</span>
+            </div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+
+        <div class="question-card glass-card fade-in">
+            <h2 id="questionText">Chargement de la question...</h2>
+        </div>
+
+        <div class="answers-grid" id="answersContainer">
+            <!-- Answers will be inserted here -->
+        </div>
+
+        <div id="feedback" class="feedback" style="display: none;"></div>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/play-solo.js"></script>
+</body>
+</html>

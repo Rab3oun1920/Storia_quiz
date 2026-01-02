@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Groupe - STORIA</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header glass-card">
+            <div class="quiz-info">
+                <div class="session-name" id="sessionName">Session</div>
+                <div class="round-counter">
+                    Tour <span id="currentRound">1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="current-group-banner" id="currentGroupBanner">
+            <h2 id="currentGroupName">Groupe 1</h2>
+            <p>C'est votre tour !</p>
+        </div>
+
+        <div class="group-scores-bar">
+            <div id="groupScoresContainer" class="group-scores">
+                <!-- Group scores will be inserted here -->
+            </div>
+        </div>
+
+        <div class="timer-container-large">
+            <div class="timer-large" id="timer">5</div>
+            <div class="timer-bar">
+                <div class="timer-progress" id="timerProgress"></div>
+            </div>
+        </div>
+
+        <div class="question-card glass-card fade-in">
+            <h2 id="questionText">Chargement de la question...</h2>
+        </div>
+
+        <div class="answers-grid" id="answersContainer">
+            <!-- Answers will be inserted here -->
+        </div>
+
+        <div id="feedback" class="feedback" style="display: none;"></div>
+
+        <div id="nextGroupBtn" class="next-group-container" style="display: none;">
+            <button class="btn btn-primary btn-large">
+                Groupe suivant
+            </button>
+        </div>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/play-groupe.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats Groupe - STORIA</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="result-container fade-in">
+            <div class="result-header glass-card">
+                <div class="result-trophy">🏆</div>
+                <h1>Session Terminée !</h1>
+                <h2 id="winnerName" class="winner-name">VAINQUEUR</h2>
+                <p id="sessionName">Session</p>
+            </div>
+
+            <div class="podium">
+                <div class="podium-place second glass-card" id="place2">
+                    <div class="podium-rank">🥈</div>
+                    <div class="podium-group">-</div>
+                    <div class="podium-score">0</div>
+                </div>
+
+                <div class="podium-place first glass-card" id="place1">
+                    <div class="podium-rank">🥇</div>
+                    <div class="podium-group">-</div>
+                    <div class="podium-score">0</div>
+                </div>
+
+                <div class="podium-place third glass-card" id="place3">
+                    <div class="podium-rank">🥉</div>
+                    <div class="podium-group">-</div>
+                    <div class="podium-score">0</div>
+                </div>
+            </div>
+
+            <div class="detailed-results glass-card">
+                <h3>Classement Détaillé</h3>
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Rang</th>
+                            <th>Groupe</th>
+                            <th>Score</th>
+                            <th>Bonnes Réponses</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody">
+                        <!-- Results will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="result-actions">
+                <a href="/create-group.html" class="btn btn-primary">
+                    ➕ Nouvelle Session
+                </a>
+                <a href="/quiz-groupe.html" class="btn btn-secondary">
+                    📜 Historique
+                </a>
+                <a href="/dashboard.html" class="btn btn-outline">
+                    🏠 Tableau de bord
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/result-groupe.js"></script>
+</body>
+</html>
