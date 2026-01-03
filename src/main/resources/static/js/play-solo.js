@@ -15,7 +15,7 @@ let currentQuestionIndex = 0;
 let currentScore = 0;
 let correctAnswersCount = 0;
 let timer = null;
-let timeRemaining = 10;
+let timeRemaining = 15;
 let startTime = Date.now();
 
 // Start quiz
@@ -65,7 +65,7 @@ function loadQuestion() {
 
 // Start timer
 function startTimer() {
-    timeRemaining = 10;
+    timeRemaining = 15;
     document.getElementById('timer').textContent = timeRemaining;
     document.getElementById('timerProgress').style.width = '100%';
 
@@ -74,7 +74,7 @@ function startTimer() {
         timeRemaining--;
         document.getElementById('timer').textContent = timeRemaining;
 
-        const progress = (timeRemaining / 10) * 100;
+        const progress = (timeRemaining / 15) * 100;
         document.getElementById('timerProgress').style.width = progress + '%';
 
         if (timeRemaining <= 0) {

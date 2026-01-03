@@ -123,7 +123,7 @@ function showNextGroupButton() {
 // Start timer
 function startTimer() {
     questionStartTime = Date.now();
-    timeRemaining = session.timePerQuestion || 5;
+    timeRemaining = session.timePerQuestion || 15;
     document.getElementById('timer').textContent = timeRemaining;
     document.getElementById('timerProgress').style.width = '100%';
 
@@ -132,7 +132,7 @@ function startTimer() {
         timeRemaining--;
         document.getElementById('timer').textContent = timeRemaining;
 
-        const progress = (timeRemaining / (session.timePerQuestion || 5)) * 100;
+        const progress = (timeRemaining / (session.timePerQuestion || 15)) * 100;
         document.getElementById('timerProgress').style.width = progress + '%';
 
         if (timeRemaining <= 0) {

@@ -51,7 +51,7 @@ public class GroupQuizSession {
     private Integer totalQuestions;
 
     @Column(name = "time_per_question", nullable = false)
-    private Integer timePerQuestion = 5; // 5 secondes par question
+    private Integer timePerQuestion = 15; // 15 secondes par question
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false, length = 20)
@@ -90,7 +90,7 @@ public class GroupQuizSession {
             status = SessionStatus.WAITING;
         }
         if (timePerQuestion == null) {
-            timePerQuestion = 5;
+            timePerQuestion = 15;
         }
         // Calculer le nombre de questions selon le nombre de groupes
         if (totalQuestions == null && numberOfGroups != null) {
